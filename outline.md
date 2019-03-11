@@ -39,6 +39,8 @@
 
 - [Windows](https://ci.apache.org/projects/flink/flink-docs-release-1.7/dev/stream/operators/windows.html)
   (略過 Triggers, Evictors)
+- [Generating Timestamps/Watermarks](https://ci.apache.org/projects/flink/flink-docs-release-1.7/dev/event_timestamps_watermarks.html)
+  (Optional)
 
 ## 課程素材
 
