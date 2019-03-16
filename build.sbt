@@ -20,7 +20,4 @@ libraryDependencies += "org.rogach" %% "scallop" % "2.0.5"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.4" % Test
 libraryDependencies += "org.mockito" % "mockito-all" % "1.10.19" % Test
 
-resolvers += "snapshots" at "http://maven.spark.appier.info:8080/repository/snapshots/"
-resolvers += "releases" at "http://maven.spark.appier.info:8080/repository/releases/"
-
 fork := true
