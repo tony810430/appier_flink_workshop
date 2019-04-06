@@ -78,11 +78,27 @@
 - [From API to JobGraph](https://zhuanlan.zhihu.com/p/22736103)
 
 
+# Workshop 5: Operations & Monitoring (checkpoint, savepoint, metrics)
+
+## 課前閱讀
+
+- [Savepoints](https://ci.apache.org/projects/flink/flink-docs-release-1.7/ops/state/savepoints.html)
+- [Kafka Connector](https://ci.apache.org/projects/flink/flink-docs-release-1.7/dev/connectors/kafka.html) (Optional)
+
+## 課程素材
+
+- Slides: [Connectors](https://www.slideshare.net/dataArtisans/apache-flink-training-datastream-api-connectors)
+- Slides: [Metrics & Monitoring](https://www.slideshare.net/dataArtisans/apache-flink-training-metrics-monitoring)
+- [Checkpoints](https://ci.apache.org/projects/flink/flink-docs-release-1.7/ops/state/checkpoints.html)
+- [CLI](https://ci.apache.org/projects/flink/flink-docs-release-1.7/ops/cli.html)
+- [REST API](https://ci.apache.org/projects/flink/flink-docs-release-1.7/monitoring/rest_api.html)
+- [Metrics](https://ci.apache.org/projects/flink/flink-docs-release-1.7/monitoring/metrics.html)
+
+
 # Follow-up Topics
 
 - [Connectors](https://ci.apache.org/projects/flink/flink-docs-release-1.7/dev/connectors/)
 - Testing ([Basic](https://ci.apache.org/projects/flink/flink-docs-release-1.7/dev/stream/testing.html) & Advanced)
-- Operations & Monitoring (checkpoint, savepoint, metrics)
 - Custom Souce/Sink
 - [Non-keyed State](https://ci.apache.org/projects/flink/flink-docs-release-1.7/dev/stream/state/state.html#using-managed-operator-state)
 - Exactly-once Function
