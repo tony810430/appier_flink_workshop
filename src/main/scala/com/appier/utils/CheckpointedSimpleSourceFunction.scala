@@ -22,8 +22,10 @@ class CheckpointedSimpleSourceFunction extends RichParallelSourceFunction[String
 
   override def run(ctx: SourceContext[String]): Unit = {
     while (!isCancel) {
-      ctx.collect(s"message: $number")
-      number += 1
+      ctx.getCheckpointLock.synchronized {
+        ctx.collect(s"message: $number")
+        number += 1
+      }
       Thread.sleep(500)
     }
   }
