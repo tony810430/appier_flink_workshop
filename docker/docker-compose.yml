@@ -1,7 +1,7 @@
 version: '2'
 services:
   jobmanager:
-    image: flink:1.7.2-scala_2.11
+    image: flink:1.9.1-scala_2.11
     hostname: "jobmanager"
     expose:
       - "6123"
@@ -13,7 +13,7 @@ services:
     volumes:
       - savepoints:/savepoints:Z
   taskmanager:
-    image: flink:1.7.2-scala_2.11
+    image: flink:1.9.1-scala_2.11
     expose:
       - "6121"
       - "6122"

@@ -1,5 +1,6 @@
 package com.appier.workshop4;
 
+import org.apache.flink.api.dag.Transformation;
 import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.datastream.KeyedStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -7,7 +8,6 @@ import org.apache.flink.streaming.api.functions.timestamps.AscendingTimestampExt
 import org.apache.flink.streaming.api.functions.windowing.WindowFunction;
 import org.apache.flink.streaming.api.transformations.OneInputTransformation;
 import org.apache.flink.streaming.api.transformations.PartitionTransformation;
-import org.apache.flink.streaming.api.transformations.StreamTransformation;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
@@ -52,15 +52,15 @@ public class StreamTransformViewer {
         Field transformationsField = env.getClass().getSuperclass().getDeclaredField("transformations");
         transformationsField.setAccessible(true);
         @SuppressWarnings("unchecked")
-        List<StreamTransformation> transformations = (List<StreamTransformation>) transformationsField.get(env);
+        List<Transformation> transformations = (List<Transformation>) transformationsField.get(env);
 
-        for (StreamTransformation transformation : transformations) {
+        for (Transformation transformation : transformations) {
             System.out.println(transformation.getClass());
             recursivePrintInputTransform(transformation, 1);
         }
     }
 
-    private static void recursivePrintInputTransform(StreamTransformation transformation, int depth) throws Exception {
+    private static void recursivePrintInputTransform(Transformation transformation, int depth) throws Exception {
         if (transformation instanceof OneInputTransformation) {
             Field keySelectorFiled = ((OneInputTransformation) transformation).getClass().getDeclaredField("stateKeySelector");
             keySelectorFiled.setAccessible(true);
@@ -71,13 +71,13 @@ public class StreamTransformViewer {
             Field inputField = in.getClass().getDeclaredField("input");
             inputField.setAccessible(true);
             print(inputField.get(in).getClass(), depth);
-            recursivePrintInputTransform((StreamTransformation) inputField.get(in), depth + 1);
+            recursivePrintInputTransform((Transformation) inputField.get(in), depth + 1);
         } else if (transformation instanceof PartitionTransformation) {
             PartitionTransformation in = ((PartitionTransformation) transformation);
             Field inputField = in.getClass().getDeclaredField("input");
             inputField.setAccessible(true);
             print(inputField.get(in).getClass(), depth);
-            recursivePrintInputTransform((StreamTransformation) inputField.get(in), depth + 1);
+            recursivePrintInputTransform((Transformation) inputField.get(in), depth + 1);
         }
     }
 
