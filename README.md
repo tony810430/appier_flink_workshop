@@ -105,9 +105,7 @@
 
 ### 課程素材
 
-- [Testing](https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/stream/testing.html) (Basic)
-- Testing (Advanced) - wip
-
+- [Testing](https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/stream/testing.html)
 
 ## Workshop ??: Exactly-Once Function
 
