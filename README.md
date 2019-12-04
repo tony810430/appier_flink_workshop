@@ -10,10 +10,10 @@
 ### Part 2 (給沒參加過上次 flink workshop 的閱讀功課)
 
 - [What is Apache Flink](https://flink.apache.org/flink-architecture.html)
-- [Flink’s Dataflow Programming Model](https://ci.apache.org/projects/flink/flink-docs-release-1.7/concepts/programming-model.html)
-- [Flink’s Distributed Runtime Environment](https://ci.apache.org/projects/flink/flink-docs-release-1.7/concepts/runtime.html)
-- [Data Streaming Fault Tolerance](https://ci.apache.org/projects/flink/flink-docs-release-1.7/internals/stream_checkpointing.html)
-- [Event Time and Watermarks](https://ci.apache.org/projects/flink/flink-docs-release-1.7/dev/event_time.html#event-time-and-watermarks) (會有點難懂，有問題請找我討論)
+- [Flink’s Dataflow Programming Model](https://ci.apache.org/projects/flink/flink-docs-release-1.9/concepts/programming-model.html)
+- [Flink’s Distributed Runtime Environment](https://ci.apache.org/projects/flink/flink-docs-release-1.9/concepts/runtime.html)
+- [Data Streaming Fault Tolerance](https://ci.apache.org/projects/flink/flink-docs-release-1.9/internals/stream_checkpointing.html)
+- [Event Time and Watermarks](https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/event_time.html#event-time-and-watermarks) (會有點難懂，有問題請找我討論)
   ([Reference1](https://conferences.oreilly.com/strata/strata-eu-2016/public/schedule/detail/49605))
   ([Reference2](https://www.youtube.com/watch?v=TWxSLmkWPm4))
 
@@ -22,10 +22,10 @@
 
 ### 課前閱讀
 
-- [Basic API Overview](https://ci.apache.org/projects/flink/flink-docs-release-1.7/dev/api_concepts.html)
+- [Basic API Overview](https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/api_concepts.html)
   (讀到 Specifying Transformation Functions)
-- [Operators Overview](https://ci.apache.org/projects/flink/flink-docs-release-1.7/dev/stream/operators/)
-- [Using Managed Keyed State](https://ci.apache.org/projects/flink/flink-docs-release-1.7/dev/stream/state/state.html#using-managed-keyed-state)
+- [Operators Overview](https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/stream/operators/)
+- [Using Managed Keyed State](https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/stream/state/state.html#using-managed-keyed-state)
    (State TTL 和之後的不用讀)
 
 ### 課程素材
@@ -39,9 +39,9 @@
 
 ### 課前閱讀
 
-- [Windows](https://ci.apache.org/projects/flink/flink-docs-release-1.7/dev/stream/operators/windows.html)
+- [Windows](https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/stream/operators/windows.html)
   (略過 Triggers, Evictors)
-- [Generating Timestamps/Watermarks](https://ci.apache.org/projects/flink/flink-docs-release-1.7/dev/event_timestamps_watermarks.html)
+- [Generating Timestamps/Watermarks](https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/event_timestamps_watermarks.html)
   (Optional)
 
 ### 課程素材
@@ -55,8 +55,8 @@
 
 ### 課前閱讀
 
-- [Process Function](https://ci.apache.org/projects/flink/flink-docs-release-1.7/dev/stream/operators/process_function.html)
-- [Side Outputs](https://ci.apache.org/projects/flink/flink-docs-release-1.7/dev/stream/side_output.html)
+- [Process Function](https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/stream/operators/process_function.html)
+- [Side Outputs](https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/stream/side_output.html)
 
 ### 課程素材
 
@@ -75,8 +75,8 @@
 
 - Slides: [Fault tolerance](https://www.slideshare.net/dataArtisans/apache-flink-training-datastream-api-state-failure-recovery)
 - [State Backends](https://training.ververica.com/state-backends.html)
-- [State Backends (flink docs)](https://ci.apache.org/projects/flink/flink-docs-release-1.7/ops/state/state_backends.html)
-- [Production Readiness Checklist](https://ci.apache.org/projects/flink/flink-docs-release-1.7/ops/production_ready.html)
+- [State Backends (flink docs)](https://ci.apache.org/projects/flink/flink-docs-release-1.9/ops/state/state_backends.html)
+- [Production Readiness Checklist](https://ci.apache.org/projects/flink/flink-docs-release-1.9/ops/production_ready.html)
 - [From API to JobGraph](https://zhuanlan.zhihu.com/p/22736103)
 
 
@@ -84,17 +84,17 @@
 
 ### 課前閱讀
 
-- [Savepoints](https://ci.apache.org/projects/flink/flink-docs-release-1.7/ops/state/savepoints.html)
-- [Kafka Connector](https://ci.apache.org/projects/flink/flink-docs-release-1.7/dev/connectors/kafka.html) (Optional)
+- [Savepoints](https://ci.apache.org/projects/flink/flink-docs-release-1.9/ops/state/savepoints.html)
+- [Kafka Connector](https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/connectors/kafka.html) (Optional)
 
 ### 課程素材
 
 - Slides: [Connectors](https://www.slideshare.net/dataArtisans/apache-flink-training-datastream-api-connectors)
 - Slides: [Metrics & Monitoring](https://www.slideshare.net/dataArtisans/apache-flink-training-metrics-monitoring)
-- [Checkpoints](https://ci.apache.org/projects/flink/flink-docs-release-1.7/ops/state/checkpoints.html)
-- [CLI](https://ci.apache.org/projects/flink/flink-docs-release-1.7/ops/cli.html)
-- [REST API](https://ci.apache.org/projects/flink/flink-docs-release-1.7/monitoring/rest_api.html)
-- [Metrics](https://ci.apache.org/projects/flink/flink-docs-release-1.7/monitoring/metrics.html)
+- [Checkpoints](https://ci.apache.org/projects/flink/flink-docs-release-1.9/ops/state/checkpoints.html)
+- [CLI](https://ci.apache.org/projects/flink/flink-docs-release-1.9/ops/cli.html)
+- [REST API](https://ci.apache.org/projects/flink/flink-docs-release-1.9/monitoring/rest_api.html)
+- [Metrics](https://ci.apache.org/projects/flink/flink-docs-release-1.9/monitoring/metrics.html)
 
 
 ## Workshop 6: Testing - Basic & Advanced
@@ -105,7 +105,7 @@
 
 ### 課程素材
 
-- [Testing](https://ci.apache.org/projects/flink/flink-docs-release-1.7/dev/stream/testing.html) (Basic)
+- [Testing](https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/stream/testing.html) (Basic)
 - Testing (Advanced) - wip
 
 
@@ -119,7 +119,7 @@
 
 - wip
 - Custom Source/Sink
-- [Non-keyed State](https://ci.apache.org/projects/flink/flink-docs-release-1.7/dev/stream/state/state.html#using-managed-operator-state)
+- [Non-keyed State](https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/stream/state/state.html#using-managed-operator-state)
 
 
 ## Workshop ??: Connectors & Async I/O
@@ -131,11 +131,11 @@
 ### 課程素材
 
 - wip
-- [Connectors](https://ci.apache.org/projects/flink/flink-docs-release-1.7/dev/connectors/)
-- [Async I/O](https://ci.apache.org/projects/flink/flink-docs-release-1.7/dev/stream/operators/asyncio.html)
+- [Connectors](https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/connectors/)
+- [Async I/O](https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/stream/operators/asyncio.html)
 
 
 ## Follow-up Topics
 
-- [State Migration](https://ci.apache.org/projects/flink/flink-docs-release-1.7/ops/upgrading.html#application-state-compatibility) & [Schema Evolution](https://ci.apache.org/projects/flink/flink-docs-release-1.7/dev/stream/state/schema_evolution.html)
-- [Table API & SQL](https://ci.apache.org/projects/flink/flink-docs-release-1.7/dev/table/)
+- [State Migration](https://ci.apache.org/projects/flink/flink-docs-release-1.9/ops/upgrading.html#application-state-compatibility) & [Schema Evolution](https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/stream/state/schema_evolution.html)
+- [Table API & SQL](https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/table/)
