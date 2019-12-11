@@ -1,4 +1,4 @@
-package com.appier.workshop4
+package com.appier.base
 
 import org.apache.flink.streaming.api.TimeCharacteristic
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment

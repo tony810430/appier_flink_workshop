@@ -1,11 +1,12 @@
-package com.appier.workshop4
+package com.appier.workshop2
 
+import com.appier.base.JobGraphQuestionBase
 import com.appier.utils.DummySourceFunction
 import org.apache.flink.api.scala.createTypeInformation
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
 import org.apache.flink.streaming.api.windowing.time.Time
 
-object JobGraphQuestionOne extends JobGraphQuestionBase {
+object TwoAggregationsWithSameWindow extends JobGraphQuestionBase {
   override def buildJobGraph(env: StreamExecutionEnvironment): Unit = {
     val windowDataStream = env
       .addSource(new DummySourceFunction)

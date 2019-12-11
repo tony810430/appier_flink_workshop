@@ -1,8 +1,9 @@
 package com.appier.workshop4
 
+import com.appier.base.JobGraphQuestionBase
 import com.appier.utils.DummySourceFunction
 import org.apache.flink.api.common.functions.Partitioner
-import org.apache.flink.api.common.state.ValueStateDescriptor 
+import org.apache.flink.api.common.state.ValueStateDescriptor
 import org.apache.flink.api.common.typeinfo.BasicTypeInfo
 import org.apache.flink.api.scala.createTypeInformation
 import org.apache.flink.streaming.api.functions.ProcessFunction

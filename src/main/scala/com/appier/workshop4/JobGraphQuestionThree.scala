@@ -1,5 +1,6 @@
 package com.appier.workshop4
 
+import com.appier.base.JobGraphQuestionBase
 import com.appier.utils.DummySourceFunction
 import org.apache.flink.api.common.functions.JoinFunction
 import org.apache.flink.api.scala.createTypeInformation
