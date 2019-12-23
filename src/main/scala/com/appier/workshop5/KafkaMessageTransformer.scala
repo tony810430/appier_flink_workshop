@@ -1,5 +1,6 @@
 package com.appier.workshop5
 
+import java.lang
 import java.util.Properties
 
 import org.apache.flink.api.common.serialization.SimpleStringSchema
@@ -7,10 +8,9 @@ import org.apache.flink.api.scala.createTypeInformation
 import org.apache.flink.runtime.state.StateBackend
 import org.apache.flink.runtime.state.memory.MemoryStateBackend
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
-import org.apache.flink.streaming.connectors.kafka.internals.KeyedSerializationSchemaWrapper
-import org.apache.flink.streaming.connectors.kafka.{FlinkKafkaConsumer011, FlinkKafkaProducer011}
+import org.apache.flink.streaming.connectors.kafka.{FlinkKafkaConsumer, FlinkKafkaProducer, KafkaSerializationSchema}
 import org.apache.kafka.clients.consumer.ConsumerConfig
-import org.apache.kafka.clients.producer.ProducerConfig
+import org.apache.kafka.clients.producer.{ProducerConfig, ProducerRecord}
 
 object KafkaMessageTransformer {
   val inputTopic = "input_topic"
@@ -32,7 +32,7 @@ object KafkaMessageTransformer {
     consumerProperties.put(ConsumerConfig.GROUP_ID_CONFIG, "simple-consumer")
     consumerProperties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest")
 
-    val flinkKafkaConsumer011 = new FlinkKafkaConsumer011[String](
+    val flinkKafkaConsumer011 = new FlinkKafkaConsumer[String](
       inputTopic,
       new SimpleStringSchema(),
       consumerProperties
@@ -42,11 +42,15 @@ object KafkaMessageTransformer {
     producerProperties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers)
     producerProperties.put(ProducerConfig.TRANSACTION_TIMEOUT_CONFIG, "60000")
 
-    val flinkKafkaProducer011 = new FlinkKafkaProducer011[String](
+    val flinkKafkaProducer011 = new FlinkKafkaProducer[String](
       outputTopic,
-      new KeyedSerializationSchemaWrapper(new SimpleStringSchema()),
+      new KafkaSerializationSchema[String]() {
+        override def serialize(element: String, timestamp: lang.Long): ProducerRecord[Array[Byte], Array[Byte]] = {
+          new ProducerRecord(outputTopic, element.getBytes())
+        }
+      },
       producerProperties,
-      FlinkKafkaProducer011.Semantic.EXACTLY_ONCE
+      FlinkKafkaProducer.Semantic.EXACTLY_ONCE
     )
 
     env.addSource(flinkKafkaConsumer011).name("source_b").uid("source_b").disableChaining()

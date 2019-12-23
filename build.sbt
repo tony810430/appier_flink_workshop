@@ -14,7 +14,7 @@ libraryDependencies += "org.apache.flink" %% "flink-streaming-java" % flinkVersi
 libraryDependencies += "org.apache.flink" % "flink-core" % flinkVersion % "provided"
 libraryDependencies += "org.apache.flink" %% "flink-test-utils" % flinkVersion % Test
 libraryDependencies += "org.apache.flink" %% "flink-runtime" % flinkVersion % Test classifier "tests"
-libraryDependencies += "org.apache.flink" %% "flink-connector-kafka-0.11" % flinkVersion
+libraryDependencies += "org.apache.flink" %% "flink-connector-kafka" % flinkVersion
 
 libraryDependencies += "com.typesafe" % "config" % "1.2.1"
 libraryDependencies += "org.rogach" %% "scallop" % "2.0.5"
