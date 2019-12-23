@@ -11,6 +11,7 @@ import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
 import org.apache.flink.streaming.connectors.kafka.{FlinkKafkaConsumer, FlinkKafkaProducer, KafkaSerializationSchema}
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.clients.producer.{ProducerConfig, ProducerRecord}
+import org.apache.kafka.common.requests.IsolationLevel
 
 object KafkaMessageTransformer {
   val inputTopic = "input_topic"
@@ -31,6 +32,7 @@ object KafkaMessageTransformer {
     consumerProperties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers)
     consumerProperties.put(ConsumerConfig.GROUP_ID_CONFIG, "simple-consumer")
     consumerProperties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest")
+    consumerProperties.put(ConsumerConfig.ISOLATION_LEVEL_CONFIG, IsolationLevel.READ_COMMITTED)
 
     val flinkKafkaConsumer011 = new FlinkKafkaConsumer[String](
       inputTopic,
