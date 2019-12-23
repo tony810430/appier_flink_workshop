@@ -19,7 +19,7 @@ object KafkaMessageGenerator {
     val env = StreamExecutionEnvironment.getExecutionEnvironment
     env.getConfig.setLatencyTrackingInterval(-1L)
     env.setStateBackend(new MemoryStateBackend().asInstanceOf[StateBackend])
-    env.enableCheckpointing(30 * 1000L)
+    env.enableCheckpointing(3 * 1000L)
     buildGenerator(env)
     env.execute()
   }
