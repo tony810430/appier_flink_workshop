@@ -34,7 +34,7 @@ object KafkaMessageTransformer {
     consumerProperties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest")
     consumerProperties.put(ConsumerConfig.ISOLATION_LEVEL_CONFIG, IsolationLevel.READ_COMMITTED)
 
-    val flinkKafkaConsumer011 = new FlinkKafkaConsumer[String](
+    val flinkKafkaConsumer = new FlinkKafkaConsumer[String](
       inputTopic,
       new SimpleStringSchema(),
       consumerProperties
@@ -44,7 +44,7 @@ object KafkaMessageTransformer {
     producerProperties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers)
     producerProperties.put(ProducerConfig.TRANSACTION_TIMEOUT_CONFIG, "60000")
 
-    val flinkKafkaProducer011 = new FlinkKafkaProducer[String](
+    val flinkKafkaProducer = new FlinkKafkaProducer[String](
       outputTopic,
       new KafkaSerializationSchema[String]() {
         override def serialize(element: String, timestamp: lang.Long): ProducerRecord[Array[Byte], Array[Byte]] = {
@@ -55,9 +55,9 @@ object KafkaMessageTransformer {
       FlinkKafkaProducer.Semantic.EXACTLY_ONCE
     )
 
-    env.addSource(flinkKafkaConsumer011).name("source_b").uid("source_b").disableChaining()
+    env.addSource(flinkKafkaConsumer).name("source_b").uid("source_b").disableChaining()
       .map(x => s"!!! $x !!!").name("map_b").uid("map_b").disableChaining()
-      .addSink(flinkKafkaProducer011).name("sink_b").uid("sink_b")
+      .addSink(flinkKafkaProducer).name("sink_b").uid("sink_b")
   }
 
 }

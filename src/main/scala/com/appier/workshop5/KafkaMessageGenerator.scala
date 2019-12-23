@@ -30,7 +30,7 @@ object KafkaMessageGenerator {
     val properties = new Properties()
     properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers)
 
-    val flinkKafkaProducer011 = new FlinkKafkaProducer[String](
+    val flinkKafkaProducer = new FlinkKafkaProducer[String](
       outputTopic,
       new KafkaSerializationSchema[String]() {
         override def serialize(element: String, timestamp: lang.Long): ProducerRecord[Array[Byte], Array[Byte]] = {
@@ -42,6 +42,6 @@ object KafkaMessageGenerator {
     )
 
     env.addSource(simpleSourceFunction).setParallelism(1).name("source_a").uid("source_a").disableChaining()
-      .addSink(flinkKafkaProducer011).name("sink_a").uid("sink_a")
+      .addSink(flinkKafkaProducer).name("sink_a").uid("sink_a")
   }
 }
