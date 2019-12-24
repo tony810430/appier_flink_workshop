@@ -32,7 +32,7 @@ object KafkaMessageTransformer {
     consumerProperties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers)
     consumerProperties.put(ConsumerConfig.GROUP_ID_CONFIG, "simple-consumer")
     consumerProperties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest")
-    consumerProperties.put(ConsumerConfig.ISOLATION_LEVEL_CONFIG, IsolationLevel.READ_COMMITTED)
+    consumerProperties.put(ConsumerConfig.ISOLATION_LEVEL_CONFIG, "read_committed")
 
     val flinkKafkaConsumer = new FlinkKafkaConsumer[String](
       inputTopic,
