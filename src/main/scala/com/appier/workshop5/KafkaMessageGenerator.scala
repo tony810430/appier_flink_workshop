@@ -29,6 +29,7 @@ object KafkaMessageGenerator {
 
     val properties = new Properties()
     properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers)
+    properties.put(ProducerConfig.TRANSACTION_TIMEOUT_CONFIG, "60000")
 
     val flinkKafkaProducer = new FlinkKafkaProducer[String](
       outputTopic,
