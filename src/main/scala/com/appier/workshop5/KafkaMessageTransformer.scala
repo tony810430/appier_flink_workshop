@@ -24,7 +24,7 @@ object KafkaMessageTransformer {
     env.setStateBackend(new MemoryStateBackend().asInstanceOf[StateBackend])
     env.enableCheckpointing(30 * 1000L)
     buildGraph(env)
-    env.execute()
+    env.execute("KafkaMessageTransformer")
   }
 
   def buildGraph(env: StreamExecutionEnvironment): Unit = {

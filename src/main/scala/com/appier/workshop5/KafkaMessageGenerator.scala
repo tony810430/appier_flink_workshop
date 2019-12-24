@@ -21,7 +21,7 @@ object KafkaMessageGenerator {
     env.setStateBackend(new MemoryStateBackend().asInstanceOf[StateBackend])
     env.enableCheckpointing(3 * 1000L)
     buildGenerator(env)
-    env.execute()
+    env.execute("KafkaMessageGenerator")
   }
 
   def buildGenerator(env: StreamExecutionEnvironment): Unit = {
