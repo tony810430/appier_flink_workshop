@@ -35,7 +35,7 @@ object KafkaMessageGenerator {
       outputTopic,
       new KafkaSerializationSchema[String]() {
         override def serialize(element: String, timestamp: lang.Long): ProducerRecord[Array[Byte], Array[Byte]] = {
-          new ProducerRecord(outputTopic, element.getBytes())
+          new ProducerRecord(outputTopic, 0, null, element.getBytes())
         }
       },
       properties,
